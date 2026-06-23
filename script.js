@@ -1,3 +1,4 @@
+// -----------------------GALERIA------------------
 const fotos = [
     {
         imagem: "assets/coladin.jpeg",
@@ -46,3 +47,34 @@ for(const foto of fotos){
 ` 
 }
 
+//-----------------CONTADOR-----------------------
+const contador = document.getElementById("contador");
+const inicio = new Date("2022-04-25T10:00:00");
+
+function atualizar() {
+    const agora = new Date();
+    const diff = agora - inicio;
+
+    const anos = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+    const meses = Math.floor(diff / (1000 * 60 * 60 * 24 * 30) - 1);
+
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diff / (1000 * 60)) % 60);
+    const segundos = Math.floor((diff / 1000) % 60);
+
+    contador.innerHTML = `
+        <h2>Quanto tempo do nosso amor?</h2>
+        <p>
+            ${anos} anos<br>
+            ${meses} meses<br>
+            ${dias} dias<br>
+            ${horas} horas<br>
+            ${minutos} minutos<br>
+            ${segundos} segundos
+        </p>
+    `;
+}
+
+atualizar();
+setInterval(atualizar, 1000);

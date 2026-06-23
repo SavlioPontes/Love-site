@@ -30,14 +30,10 @@
     }
 
     nav a {
-       text-decoration: none;
+        text-decoration: none;
         color: black;
         font-weight: bold;
-        padding: 0 1px;
-        border-right: solid #ccc;
-    }
-    nav a:last-child {
-        border-right: none;
+        padding: 0 50px;
     }
     nav a:hover {
         color: #ff69b4;
@@ -154,3 +150,5 @@
     button:hover {
         background: #ff3d9a;
     }
+
+    #
