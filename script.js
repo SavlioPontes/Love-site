@@ -56,8 +56,7 @@ function atualizar() {
     const diff = agora - inicio;
 
     const anos = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-    const meses = Math.floor(diff / (1000 * 60 * 60 * 24 * 30) - 1);
-
+    const meses = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
     const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
     const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const minutos = Math.floor((diff / (1000 * 60)) % 60);
@@ -65,14 +64,38 @@ function atualizar() {
 
     contador.innerHTML = `
         <h2>Quanto tempo do nosso amor?</h2>
-        <p>
-            ${anos} anos<br>
-            ${meses} meses<br>
-            ${dias} dias<br>
-            ${horas} horas<br>
-            ${minutos} minutos<br>
-            ${segundos} segundos
-        </p>
+
+        <div class="tempo">
+            <div class="box">
+                <span class="num">${anos}</span>
+                <span class="label">anos</span>
+            </div>
+
+            <div class="box">
+                <span class="num">${meses}</span>
+                <span class="label">meses</span>
+            </div>
+
+            <div class="box">
+                <span class="num">${dias}</span>
+                <span class="label">dias</span>
+            </div>
+
+            <div class="box">
+                <span class="num">${horas}</span>
+                <span class="label">horas</span>
+            </div>
+
+            <div class="box">
+                <span class="num">${minutos}</span>
+                <span class="label">minutos</span>
+            </div>
+
+            <div class="box">
+                <span class="num">${segundos}</span>
+                <span class="label">segundos</span>
+            </div>
+        </div>
     `;
 }
 
