@@ -55,8 +55,16 @@ function atualizar() {
     const agora = new Date();
     const diff = agora - inicio;
 
-    const anos = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-    const meses = Math.floor(diff / (1000 * 60 * 60 * 24 * 30)- 1);
+    const anos = agora.getFullYear() - inicio.getFullYear();
+
+    let meses =
+        (agora.getFullYear() - inicio.getFullYear()) * 12 +
+        (agora.getMonth() - inicio.getMonth());
+
+    if (agora.getDate() < inicio.getDate()) {
+        meses--;
+    }
+
     const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
     const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const minutos = Math.floor((diff / (1000 * 60)) % 60);
