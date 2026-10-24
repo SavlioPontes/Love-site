@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Noto+Serif+KR:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 section, div[id] {
     scroll-margin-top: 100px;
@@ -12,71 +13,73 @@ section, div[id] {
 
 /*================= BODY ================= */
 body {
-    font-family: "Cabin", sans-serif;
-    background: linear-gradient(135deg, #ffe4ec, #ffffff);
-    color: #333;
+    font-family: "DM Sans", sans-serif;
+    background: linear-gradient(135deg, #121212, #000000);
+    color: #ffffff; /* Texto claro para leitura no fundo preto */
     padding: 20px;
 }
 
+/* ================= NAV ================= */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: firebrick;
+    background: rgba(18, 18, 18, 0.95);
     padding: 10px;
     display: flex;
     justify-content: center;
     gap: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 15px rgba(255, 19, 64, 0.2); /* Brilho vermelho sutil */
     z-index: 1000;
+    backdrop-filter: blur(5px);
 }
 
 nav a {
     text-decoration: none;
-    color: black;
+    color: #ffffff;
     font-weight: bold;
     padding: 0 50px;
+    transition: color 0.3s;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
+
 nav a:hover {
-    color: #ff69b4;
+    color: #FF1340; /* Vermelho Arirang */
 }
+
 
 /* ================= HEADER ================= */
-
 header {
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px 40px;
 }
 
-header h1 {
-    font-size: 28px;
+header h1, h2, #contador h2 {
+    font-family: "DM Sans", sans-serif;
+    color: #FF1340;
     margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
-header p {
+header p, section p {
     font-size: 16px;
-    color: #555;
+    color: #cccccc;
+    line-height: 1.5;
 }
 
 /* ================= SEPARADOR ================= */
-
 hr {
     border: none;
     height: 1px;
-    background: #ddd;
-    margin: 30px 0;
-}
-/* ================= footer ================= */
-
-footer {
-    padding: 20px;
-    font-size: 14px;
-    color: #7777772e;
+    background: linear-gradient(to right, transparent, #FF1340, transparent);
+    margin: 35px 0;
+    opacity: 0.5;
 }
 
 /* ================= GALERIA ================= */
-
 #galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -84,40 +87,46 @@ footer {
     margin-top: 20px;
 }
 
-/* CARD DA IMAGEM */
-
 #galeria figure {
     margin: 0;
     border-radius: 12px;
     overflow: hidden;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 19, 64, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
     transition: 0.3s;
 }
-
-/* IMAGEM */
 
 #galeria img {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
+    filter: grayscale(20%) contrast(110%); /* Efeito mais intenso nas fotos */
 }
-
-/* HOVER */
 
 #galeria figure:hover img {
     transform: scale(1.05);
+    filter: grayscale(0%) contrast(110%);
 }
 
-/* LEGENDA */
+#galeria figure:hover {
+    box-shadow: 0 6px 20px rgba(255, 19, 64, 0.4);
+    border-color: #FF1340;
+}
 
 #galeria figcaption {
-    padding: 10px;
+    padding: 12px;
     font-size: 14px;
     text-align: center;
-    color: #444;
+    color: #e0e0e0;
+}
+
+/* ================= CONTADOR ================= */
+#contador h2 {
+    margin-bottom: 25px; 
+    text-align: center;
 }
 
 .tempo {
@@ -130,34 +139,37 @@ footer {
 .box {
     width: 120px;
     height: 120px;
-    background: #fff;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 19, 64, 0.3);
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-
+    box-shadow: 0 5px 15px rgba(0,0,0,0.6);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    border-color: #FF1340;
 }
 
 .num {
     font-size: 2.5rem;
     font-weight: bold;
+    color: #FF1340;
 }
 
 .label {
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-/* CONTADOR*/
-
-#contador h2 {
-    margin-bottom: 20px; 
+    font-size: 0.85rem;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
 }
 
 /* ================= MÚSICAS ================= */
-
 #musicas p {
     margin-top: 6px;
 }
@@ -166,13 +178,13 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 36px 24px;
-    margin-top: 24px;
+    margin-top: 30px;
 }
 
 #aviso-som {
     margin-top: 16px;
     font-size: 14px;
-    color: firebrick;
+    color: #FF1340;
 }
 
 .album {
@@ -181,11 +193,10 @@ footer {
 }
 
 .album:focus-visible {
-    outline: 2px solid firebrick;
+    outline: 2px solid #FF1340;
     border-radius: 8px;
 }
 
-/* área da capa: ocupa 78% da largura, o resto é espaço pro disco sair */
 .capa-area {
     position: relative;
     width: 78%;
@@ -197,11 +208,12 @@ footer {
     inset: 0;
     z-index: 2;
     overflow: hidden;
-    border-radius: 4px;
-    background: linear-gradient(135deg, firebrick, #ff69b4);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    background: linear-gradient(135deg, #121212, #FF1340);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.9);
     transform-origin: 20% 90%;
     transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .album:hover .capa,
@@ -216,8 +228,6 @@ footer {
     display: block;
 }
 
-
-/* posição do disco (desliza) e disco em si (gira) ficam separados */
 .disco-pos {
     position: absolute;
     top: 3%;
@@ -235,12 +245,11 @@ footer {
     height: 100%;
     border-radius: 50%;
     background:
-        repeating-radial-gradient(circle, #111 0 2px, #1d1d1d 2px 4px),
+        repeating-radial-gradient(circle, #0a0a0a 0 2px, #1a1a1a 2px 4px),
         #111;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.8);
 }
 
-/* brilho do vinil */
 .disco::before {
     content: "";
     position: absolute;
@@ -248,12 +257,11 @@ footer {
     border-radius: 50%;
     background: conic-gradient(
         from 0deg,
-        transparent 0deg, rgba(255,255,255,0.14) 40deg, transparent 90deg,
-        transparent 180deg, rgba(255,255,255,0.14) 220deg, transparent 270deg
+        transparent 0deg, rgba(255,255,255,0.15) 40deg, transparent 90deg,
+        transparent 180deg, rgba(255,255,255,0.15) 220deg, transparent 270deg
     );
 }
 
-/* miolo do disco com a capa do álbum */
 .disco::after {
     content: "";
     position: absolute;
@@ -264,52 +272,48 @@ footer {
     transform: translate(-50%, -50%);
     border-radius: 50%;
     background:
-        radial-gradient(circle, #ffe4ec 0 5%, transparent 5.5%),
+        radial-gradient(circle, #FF1340 0 5%, transparent 5.5%),
         var(--capa, none) center / cover,
-        firebrick;
-    border: 3px solid #111;
+        #121212;
+    border: 2px solid #FF1340;
 }
 
-
-/* ---------- formatos de disco ---------- */
-
-/* vinil rosinha */
+/* ================= CORES DOS MEMBROS (ARIRANG) ================= */
+/* Jin (Rosa Creme) */
 .disco.rosa {
-    background:
-        repeating-radial-gradient(circle, #ff9ec0 0 2px, #ff86b0 2px 4px),
-        #ff86b0;
+    background: repeating-radial-gradient(circle, #F8BBD0 0 2px, #e3a9bc 2px 4px), #e3a9bc;
 }
-
 .disco.rosa::before {
-    background: conic-gradient(
-        from 0deg,
-        transparent 0deg, rgba(255,255,255,0.5) 40deg, transparent 90deg,
-        transparent 180deg, rgba(255,255,255,0.5) 220deg, transparent 270deg
-    );
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,0.5) 40deg, transparent 90deg, transparent 180deg, rgba(255,255,255,0.5) 220deg, transparent 270deg);
 }
 
-.disco.rosa::after {
-    border-color: #fff;
+/* V (Vermelho Veludo) - Substitui o rosa antigo caso queira usar */
+.disco.veludo {
+    background: repeating-radial-gradient(circle, #8B0000 0 2px, #6e0000 2px 4px), #6e0000;
+}
+.disco.veludo::after {
+    border-color: #8B0000;
 }
 
-/* disco em forma de coração */
+/* Disco Coração - Adaptado para o fundo escuro */
 .disco.coracao {
     background: none;
     box-shadow: none;
-    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.8));
 }
-
 .disco.coracao::before,
 .disco.coracao::after {
     display: none;
 }
-
 .disco.coracao svg {
     width: 100%;
     height: 100%;
     display: block;
     overflow: visible;
 }
+/* Altera a cor do SVG do coração direto pelo CSS para o Vermelho Arirang */
+.disco.coracao svg path[fill="#ff5c8a"] { fill: #FF1340; }
+.disco.coracao svg g[stroke="#ffb3cb"] { stroke: #8B0000; }
 
 .album.tocando .disco-pos,
 .album:hover .disco-pos {
@@ -325,20 +329,64 @@ footer {
 }
 
 .album-info {
-    margin-top: 12px;
+    margin-top: 15px;
 }
 
 .album-info strong {
     display: block;
-    font-size: 16px;
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 600;
 }
 
 .album-info span {
     font-size: 14px;
-    color: #555;
+    color: #aaaaaa;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    padding: 30px;
+    font-size: 14px;
+    color: #777777;
+    text-align: center;
 }
 
 @media (prefers-reduced-motion: reduce) {
     .album.tocando .disco { animation: none; }
     .disco-pos, .capa { transition: none; }
+}
+
+/* ================= STICKERS ================= */
+.sticker {
+    position: fixed; /* Prende o sticker na tela, ele acompanha o scroll */
+    width: 90px; /* Tamanho do adesivo (aumente ou diminua se precisar) */
+    z-index: 990; /* Fica por cima do site, mas abaixo do menu nav (que tem 1000) */
+    pointer-events: none; /* Faz o mouse ignorar o sticker, assim você consegue clicar nas coisas que ficarem embaixo dele */
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.6)); /* Sombra para dar profundidade */
+    transition: transform 0.3s ease;
+}
+
+/* Posições e Rotações */
+.sticker-baixo-direita {
+    bottom: 20px;
+    right: 20px;
+    transform: rotate(-12deg); /* Dá uma tortinha estilosa */
+}
+
+.sticker-baixo-esquerda {
+    bottom: 20px;
+    left: 20px;
+    transform: rotate(15deg);
+}
+
+.sticker-cima-direita {
+    top: 80px; /* Fica um pouco abaixo do menu superior */
+    right: 30px;
+    transform: rotate(8deg);
+}
+.sticker-cima-esquerda {
+    top: 80px; /* Fica um pouco abaixo do menu superior */
+    left: 30px;
+    transform: rotate(-8deg);
 }
