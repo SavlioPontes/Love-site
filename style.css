@@ -1,119 +1,126 @@
-    @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
 
-    section, div[id] {
+section, div[id] {
     scroll-margin-top: 100px;
-    }
+}
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    /*================= BODY ================= */
-    body {
-        font-family: "Cabin", sans-serif;
-        background: linear-gradient(135deg, #ffe4ec, #ffffff);
-        color: #333;
-        padding: 20px;
-    }
+/*================= BODY ================= */
+body {
+    font-family: "Cabin", sans-serif;
+    background: linear-gradient(135deg, #ffe4ec, #ffffff);
+    color: #333;
+    padding: 20px;
+}
 
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: firebrick;
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        z-index: 1000;
-    }
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: firebrick;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
 
-    nav a {
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-        padding: 0 50px;
-    }
-    nav a:hover {
-        color: #ff69b4;
-    }
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 0 50px;
+}
+nav a:hover {
+    color: #ff69b4;
+}
 
-    /* ================= HEADER ================= */
+/* ================= HEADER ================= */
 
-    header {
-        text-align: center;
-        padding: 40px 20px;
-    }
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
 
-    header h1 {
-        font-size: 28px;
-        margin-bottom: 10px;
-    }
+header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
 
-    header p {
-        font-size: 16px;
-        color: #555;
-    }
+header p {
+    font-size: 16px;
+    color: #555;
+}
 
-    /* ================= SEPARADOR ================= */
+/* ================= SEPARADOR ================= */
 
-    hr {
-        border: none;
-        height: 1px;
-        background: #ddd;
-        margin: 30px 0;
-    }
+hr {
+    border: none;
+    height: 1px;
+    background: #ddd;
+    margin: 30px 0;
+}
+/* ================= footer ================= */
 
-    /* ================= GALERIA ================= */
+footer {
+    padding: 20px;
+    font-size: 14px;
+    color: #7777772e;
+}
 
-    #galeria {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-    }
+/* ================= GALERIA ================= */
 
-    /* CARD DA IMAGEM */
+#galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
 
-    #galeria figure {
-        margin: 0;
-        border-radius: 12px;
-        overflow: hidden;
-        background: white;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        transition: 0.3s;
-    }
+/* CARD DA IMAGEM */
 
-    /* IMAGEM */
+#galeria figure {
+    margin: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
 
-    #galeria img {
-        width: 100%;
-        aspect-ratio: 1;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.3s ease;
-    }
+/* IMAGEM */
 
-    /* HOVER */
+#galeria img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
 
-    #galeria figure:hover img {
-        transform: scale(1.05);
-    }
+/* HOVER */
 
-    /* LEGENDA */
+#galeria figure:hover img {
+    transform: scale(1.05);
+}
 
-    #galeria figcaption {
-        padding: 10px;
-        font-size: 14px;
-        text-align: center;
-        color: #444;
-    }
+/* LEGENDA */
 
-    .tempo {
+#galeria figcaption {
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+}
+
+.tempo {
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -141,4 +148,197 @@
 .label {
     font-size: 0.9rem;
     opacity: 0.7;
+}
+
+/* CONTADOR*/
+
+#contador h2 {
+    margin-bottom: 20px; 
+}
+
+/* ================= MÚSICAS ================= */
+
+#musicas p {
+    margin-top: 6px;
+}
+
+#discos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 36px 24px;
+    margin-top: 24px;
+}
+
+#aviso-som {
+    margin-top: 16px;
+    font-size: 14px;
+    color: firebrick;
+}
+
+.album {
+    cursor: pointer;
+    outline-offset: 6px;
+}
+
+.album:focus-visible {
+    outline: 2px solid firebrick;
+    border-radius: 8px;
+}
+
+/* área da capa: ocupa 78% da largura, o resto é espaço pro disco sair */
+.capa-area {
+    position: relative;
+    width: 78%;
+    aspect-ratio: 1;
+}
+
+.capa {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+    border-radius: 4px;
+    background: linear-gradient(135deg, firebrick, #ff69b4);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    transform-origin: 20% 90%;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.album:hover .capa,
+.album.tocando .capa {
+    transform: rotate(-7deg) translateX(-3%);
+}
+
+.capa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* posição do disco (desliza) e disco em si (gira) ficam separados */
+.disco-pos {
+    position: absolute;
+    top: 3%;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 1;
+    z-index: 1;
+    transform: translateX(8%);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.disco {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background:
+        repeating-radial-gradient(circle, #111 0 2px, #1d1d1d 2px 4px),
+        #111;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* brilho do vinil */
+.disco::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg, rgba(255,255,255,0.14) 40deg, transparent 90deg,
+        transparent 180deg, rgba(255,255,255,0.14) 220deg, transparent 270deg
+    );
+}
+
+/* miolo do disco com a capa do álbum */
+.disco::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 34%;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, #ffe4ec 0 5%, transparent 5.5%),
+        var(--capa, none) center / cover,
+        firebrick;
+    border: 3px solid #111;
+}
+
+
+/* ---------- formatos de disco ---------- */
+
+/* vinil rosinha */
+.disco.rosa {
+    background:
+        repeating-radial-gradient(circle, #ff9ec0 0 2px, #ff86b0 2px 4px),
+        #ff86b0;
+}
+
+.disco.rosa::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg, rgba(255,255,255,0.5) 40deg, transparent 90deg,
+        transparent 180deg, rgba(255,255,255,0.5) 220deg, transparent 270deg
+    );
+}
+
+.disco.rosa::after {
+    border-color: #fff;
+}
+
+/* disco em forma de coração */
+.disco.coracao {
+    background: none;
+    box-shadow: none;
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
+}
+
+.disco.coracao::before,
+.disco.coracao::after {
+    display: none;
+}
+
+.disco.coracao svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+.album.tocando .disco-pos,
+.album:hover .disco-pos {
+    transform: translateX(28%);
+}
+
+.album.tocando .disco {
+    animation: girar 2.4s linear infinite;
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+.album-info {
+    margin-top: 12px;
+}
+
+.album-info strong {
+    display: block;
+    font-size: 16px;
+}
+
+.album-info span {
+    font-size: 14px;
+    color: #555;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .album.tocando .disco { animation: none; }
+    .disco-pos, .capa { transition: none; }
 }
