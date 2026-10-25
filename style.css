@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Noto+Serif+KR:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
+:root {
+    --destaque: #FF1340;        /* vermelho Arirang */
+    --destaque-escuro: #8B0000;
+    --roxo-bts: #A66BFF;        /* roxo BTS (borahae) */
+}
+
 section, div[id] {
     scroll-margin-top: 100px;
 }
@@ -50,6 +56,11 @@ nav a:hover {
     color: #FF1340; /* Vermelho Arirang */
 }
 
+nav a.bts:hover {
+    color: var(--roxo-bts); 
+    text-shadow: 0 0 12px rgba(166, 107, 255, 0.7);
+}
+
 
 /* ================= HEADER ================= */
 header {
@@ -80,24 +91,24 @@ hr {
 }
 
 /* ================= GALERIA ================= */
-#galeria {
+.galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
 
-#galeria figure {
+.galeria figure {
     margin: 0;
     border-radius: 12px;
     overflow: hidden;
     background: #1a1a1a;
-    border: 1px solid rgba(255, 19, 64, 0.2);
+    border: 1px solid color-mix(in srgb, var(--destaque) 25%, transparent);
     box-shadow: 0 4px 15px rgba(0,0,0,0.6);
     transition: 0.3s;
 }
 
-#galeria img {
+.galeria img {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
@@ -106,17 +117,31 @@ hr {
     filter: grayscale(20%) contrast(110%); /* Efeito mais intenso nas fotos */
 }
 
-#galeria figure:hover img {
+.galeria figure:hover img {
     transform: scale(1.05);
     filter: grayscale(0%) contrast(110%);
 }
 
-#galeria figure:hover {
-    box-shadow: 0 6px 20px rgba(255, 19, 64, 0.4);
-    border-color: #FF1340;
+.galeria figure:hover {
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--destaque) 40%, transparent);
+    border-color: var(--destaque);
 }
 
-#galeria figcaption {
+/* foto que ainda não existe: mostra um quadradinho em vez da imagem quebrada */
+.galeria figure.sem-foto img {
+    display: none;
+}
+
+.galeria figure.sem-foto::before {
+    content: "💜";
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    font-size: 42px;
+    background: linear-gradient(135deg, #1d0f3a, var(--roxo-bts));
+}
+
+.galeria figcaption {
     padding: 12px;
     font-size: 14px;
     text-align: center;
@@ -174,17 +199,17 @@ hr {
     margin-top: 6px;
 }
 
-#discos {
+.discos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 36px 24px;
     margin-top: 30px;
 }
 
-#aviso-som {
+.aviso-som {
     margin-top: 16px;
     font-size: 14px;
-    color: #FF1340;
+    color: var(--destaque);
 }
 
 .album {
@@ -193,7 +218,7 @@ hr {
 }
 
 .album:focus-visible {
-    outline: 2px solid #FF1340;
+    outline: 2px solid var(--destaque);
     border-radius: 8px;
 }
 
@@ -209,7 +234,7 @@ hr {
     z-index: 2;
     overflow: hidden;
     border-radius: 6px;
-    background: linear-gradient(135deg, #121212, #FF1340);
+    background: linear-gradient(135deg, #121212, var(--destaque));
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.9);
     transform-origin: 20% 90%;
     transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -272,10 +297,10 @@ hr {
     transform: translate(-50%, -50%);
     border-radius: 50%;
     background:
-        radial-gradient(circle, #FF1340 0 5%, transparent 5.5%),
+        radial-gradient(circle, var(--destaque) 0 5%, transparent 5.5%),
         var(--capa, none) center / cover,
         #121212;
-    border: 2px solid #FF1340;
+    border: 2px solid var(--destaque);
 }
 
 /* ================= CORES DOS MEMBROS (ARIRANG) ================= */
@@ -295,6 +320,17 @@ hr {
     border-color: #8B0000;
 }
 
+/* Vinil roxo (BTS) */
+.disco.roxo {
+    background: repeating-radial-gradient(circle, #b58cff 0 2px, #9b6bef 2px 4px), #9b6bef;
+}
+.disco.roxo::before {
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,0.45) 40deg, transparent 90deg, transparent 180deg, rgba(255,255,255,0.45) 220deg, transparent 270deg);
+}
+.disco.roxo::after {
+    border-color: #fff;
+}
+
 /* Disco Coração - Adaptado para o fundo escuro */
 .disco.coracao {
     background: none;
@@ -312,8 +348,8 @@ hr {
     overflow: visible;
 }
 /* Altera a cor do SVG do coração direto pelo CSS para o Vermelho Arirang */
-.disco.coracao svg path[fill="#ff5c8a"] { fill: #FF1340; }
-.disco.coracao svg g[stroke="#ffb3cb"] { stroke: #8B0000; }
+.disco.coracao svg path[fill="#ff5c8a"] { fill: var(--destaque); }
+.disco.coracao svg g[stroke="#ffb3cb"] { stroke: var(--destaque-escuro); }
 
 .album.tocando .disco-pos,
 .album:hover .disco-pos {
@@ -344,11 +380,50 @@ hr {
     color: #aaaaaa;
 }
 
+/* ================= BTS ================= */
+#bts {
+    --destaque: var(--roxo-bts);
+    --destaque-escuro: #4b2a8a;
+    padding: 30px 18px;
+    border-radius: 20px;
+    background: radial-gradient(ellipse at top, rgba(166, 107, 255, 0.14), transparent 65%);
+    border: 1px solid rgba(166, 107, 255, 0.18);
+}
+
+#bts h2,
+#bts h3 {
+    color: var(--roxo-bts);
+}
+
+#bts h3 {
+    margin-top: 38px;
+    margin-bottom: 4px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.borahae {
+    margin-top: 10px;
+    font-family: "Noto Serif KR", serif;
+    font-size: 20px;
+    color: var(--roxo-bts);
+}
+
+.borahae span {
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    color: #cdb6ff;
+}
+
+hr.hr-bts {
+    background: linear-gradient(to right, transparent, var(--roxo-bts), transparent);
+}
+
 /* ================= FOOTER ================= */
 footer {
     padding: 30px;
     font-size: 14px;
-    color: #777777;
+    color: #6c6a6a0b;
     text-align: center;
 }
 
@@ -390,4 +465,3 @@ footer {
     left: 30px;
     transform: rotate(-8deg);
 }
-// Adicione mais stickers conforme necessário, apenas copiando a classe e ajustando a posição e rotação.
